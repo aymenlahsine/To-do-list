@@ -8,6 +8,7 @@ function renderTodoList() {
   todoList.forEach((todoObject, index) => {
     const { name, dueDate } = todoObject;
     const html = `
+      <input type="checkbox" class="js-input-checkbox input-checkbox">
       <div class="todo-task">${name}</div>
       <div class="todo-due-date">${dueDate}</div>
       <button class="delete-todo-button js-delete-todo-button">Delete</button>
@@ -28,6 +29,34 @@ function renderTodoList() {
       });
     });
 }
+
+const inputElement = document.querySelector('.js-name-input');
+
+const checkboxElement = document.querySelectorAll('.js-input-checkbox');
+
+const todoTaskElement = document.querySelectorAll('.todo-task');
+
+checkboxElement.forEach((checkbox) => {
+  todoTaskElement.forEach((element) => {
+    checkbox.addEventListener('click', () => {
+      element.classList.toggle('todo-task-checked');
+    });
+  });
+});
+
+// todoTaskElement.forEach((element) => {
+//   checkboxElement.forEach((checkbox) => {
+
+//   });
+// });
+
+document
+  .querySelector('.js-name-input')
+  .addEventListener('keydown', (event) => {
+    if (inputElement.value != '' && event.key === 'Enter') {
+      addTodo();
+    }
+  });
 
 document.querySelector('.js-add-todo-button').addEventListener('click', () => {
   addTodo();
@@ -56,10 +85,4 @@ function addTodo() {
 
 function saveToStorage() {
   localStorage.setItem('todoList', JSON.stringify(todoList));
-}
-
-function todoEnter(event) {
-  if (inputElement.value != '' && event.key === 'Enter') {
-    addTodo();
-  }
 }

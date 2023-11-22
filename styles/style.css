@@ -29,6 +29,10 @@ body {
 }
 
 .todo-grid {
+  grid-template-columns: 20px 170px 150px 100px;
+}
+
+.todo-grid {
   margin-top: 20px;
   color: white;
 }
@@ -45,6 +49,9 @@ body {
   border: none;
   border-radius: 4px;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.name-input::placeholder {
 }
 
 .add-todo-button,
@@ -82,4 +89,14 @@ body {
 .todo-task,
 .todo-due-date {
   padding-left: 10px;
+}
+
+.input-checkbox {
+  height: 14px;
+  width: 25px;
+}
+
+.todo-task-checked {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
 }
