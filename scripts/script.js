@@ -5,13 +5,15 @@ renderTodoList();
 function renderTodoList() {
   let todoListHTML = '';
 
-  todoList.forEach((todoObject, index) => {
+  todoList.forEach((todoObject) => {
     const { name, dueDate } = todoObject;
     const html = `
+      <div class="todo-grid">
       <input type="checkbox" class="js-input-checkbox input-checkbox">
-      <div class="todo-task">${name}</div>
+      <label class="todo-task">${name}</label>
       <div class="todo-due-date">${dueDate}</div>
       <button class="delete-todo-button js-delete-todo-button">Delete</button>
+      </div>
     `;
 
     todoListHTML += html;
@@ -31,24 +33,6 @@ function renderTodoList() {
 }
 
 const inputElement = document.querySelector('.js-name-input');
-
-const checkboxElement = document.querySelectorAll('.js-input-checkbox');
-
-const todoTaskElement = document.querySelectorAll('.todo-task');
-
-checkboxElement.forEach((checkbox) => {
-  todoTaskElement.forEach((element) => {
-    checkbox.addEventListener('click', () => {
-      element.classList.toggle('todo-task-checked');
-    });
-  });
-});
-
-// todoTaskElement.forEach((element) => {
-//   checkboxElement.forEach((checkbox) => {
-
-//   });
-// });
 
 document
   .querySelector('.js-name-input')

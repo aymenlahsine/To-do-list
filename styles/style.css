@@ -30,9 +30,6 @@ body {
 
 .todo-grid {
   grid-template-columns: 20px 170px 150px 100px;
-}
-
-.todo-grid {
   margin-top: 20px;
   color: white;
 }
@@ -96,7 +93,8 @@ body {
   width: 25px;
 }
 
-.todo-task-checked {
+.input-checkbox:checked + .todo-task,
+.input-checkbox:checked + .todo-task + .todo-due-date {
   text-decoration: line-through;
   text-decoration-thickness: 1px;
 }
